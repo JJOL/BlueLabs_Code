@@ -121,8 +121,8 @@ public class GamePanel extends JPanel implements Runnable{
                 
             dbg=dbImage.getGraphics();
             //clear background
-            dbg.setColor(Color.WHITE);
-            dbg.fillRect(0, 0, PWIDTH, PHEIGTH);
+            //dbg.setColor(Color.WHITE);
+            //dbg.fillRect(0, 0, PWIDTH, PHEIGTH);
             
             
             //draw game elements

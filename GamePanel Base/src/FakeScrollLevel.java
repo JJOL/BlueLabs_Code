@@ -15,6 +15,7 @@ public class FakeScrollLevel extends LevelController{
 	int b2_xOff;
 	
 	private Player player;
+	private AnimationSprite bat;
 	
 	
 	public FakeScrollLevel(int PWIDTH, int PHEIGHT) {
@@ -33,6 +34,16 @@ public class FakeScrollLevel extends LevelController{
 		b1_xOff = 0;
 		b2_xOff = b1_xOff + img.getWidth();
 		
+		
+		SpriteBuilder builder = new SpriteBuilder("bat/PNG/bat-32x32.png", 32, 32);
+		builder.addImage(1, 0);
+		builder.addImage(2, 0);
+		builder.addImage(3, 0);
+		builder.addImage(2, 0);
+		
+		bat = new AnimationSprite(100, 100, builder.build());
+		bat.setAnimSpd(5);
+		
 	}
 	
 	@Override
@@ -43,9 +54,9 @@ public class FakeScrollLevel extends LevelController{
 		g.drawImage(img, b1_xOff, 0, null);
 		g.drawImage(img, b2_xOff, 0, null);
 		
-		
 		player.draw(g);
 		
+		bat.render(g);
 	}
 	
 	@Override
@@ -63,6 +74,7 @@ public class FakeScrollLevel extends LevelController{
 		}
 		
 		player.update();
+		bat.update();
 	}
 	
 	@Override
